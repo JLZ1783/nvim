@@ -13,6 +13,23 @@ local config = function()
 
 	local capabilities = cmp_nvim_lsp.default_capabilities()
 
+	lspconfig.eslint.setup({
+		--- ...
+		capabilities = capabilities,
+		on_attach = on_attach,
+
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+			"vue",
+			"svelte",
+			"astro",
+		},
+	})
 	-- lua
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
@@ -127,7 +144,6 @@ local config = function()
 			"json",
 			"jsonc",
 			"sh",
-			"javascript",
 			"javascriptreact",
 			"typescript",
 			"typescriptreact",
