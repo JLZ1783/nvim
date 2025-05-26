@@ -1,6 +1,7 @@
 local opts = {
 	ensure_installed = {
-		"efm",
+    "tsserver",		
+    "efm",
 		"bashls",
 		"tsserver",
 		"solidity",

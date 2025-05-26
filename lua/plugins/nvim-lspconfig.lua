@@ -13,6 +13,7 @@ local config = function()
 
 	local capabilities = cmp_nvim_lsp.default_capabilities()
 
+	-- Disable snippets in LSP completions
 	lspconfig.eslint.setup({
 		--- ...
 		capabilities = capabilities,
@@ -81,6 +82,7 @@ local config = function()
 		capabilities = capabilities,
 		filetypes = {
 			"typescript",
+			"javascript",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	})
@@ -144,9 +146,6 @@ local config = function()
 			"json",
 			"jsonc",
 			"sh",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
 			"svelte",
 			"vue",
 			"markdown",
@@ -165,13 +164,13 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
-				typescript = { eslint_d, prettierd },
+				--typescript = { eslint_d, prettierd },
 				json = { eslint_d, fixjson },
 				jsonc = { eslint_d, fixjson },
 				sh = { shellcheck, shfmt },
-				javascript = { eslint_d, prettierd },
-				javascriptreact = { eslint_d, prettierd },
-				typescriptreact = { eslint_d, prettierd },
+				--javascript = { eslint_d, prettierd },
+				--javascriptreact = { eslint_d, prettierd },
+				--typescriptreact = { eslint_d, prettierd },
 				svelte = { eslint_d, prettierd },
 				vue = { eslint_d, prettierd },
 				markdown = { alex, prettierd },

@@ -10,11 +10,7 @@ return {
 		vim.opt.completeopt = "menu,menuone,noselect"
 
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
+			snippet = {},
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -27,7 +23,7 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- lsp
-				{ name = "luasnip" }, -- snippets
+				-- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
@@ -37,6 +33,17 @@ return {
 					maxwidth = 50,
 					ellipsis_char = "...",
 				}),
+			},
+			-- Set the sort order to prioritize LSP over snippets
+			sorting = {
+				priority_weight = 2, -- Higher value means higher priority
+				comparators = {
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
 			},
 		})
 	end,

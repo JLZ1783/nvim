@@ -4,7 +4,7 @@ return {
 	event = "InsertEnter",
 	dependencies = "zbirenbaum/copilot-cmp",
 	config = function()
-		require("copilot").setup(require("copilot").setup({
+		require("copilot").setup({
 			panel = {
 				enabled = true,
 				auto_refresh = false,
@@ -34,6 +34,9 @@ return {
 				},
 			},
 			filetypes = {
+        javascript = true,
+        typescript = true,
+        lua = true,
 				yaml = false,
 				markdown = false,
 				help = false,
@@ -46,7 +49,7 @@ return {
 			},
 			copilot_node_command = "node", -- Node.js version must be > 16.x
 			server_opts_overrides = {},
-		}))
+		})
 		require("copilot_cmp").setup({
 			formatters = {
 				insert_text = require("copilot_cmp.format").remove_existing,
