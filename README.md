@@ -28,7 +28,36 @@ Welcome to my NeoVim config. Use it for inspiration.
 [trouble](https://github.com/nvim-tree/nvim-web-devicons) - prettier diagnostics  
 [vim-highlightedyank](machakann/vim-highlightedyank) - highlights yanked text  
 [vim-illuminate](https://github.com/RRethy/vim-illuminate) - illuminates instances of word under cursor  
-[whichkey](https://github.com/folke/which-key.nvim) - shortcut hints
+[whichkey](https://github.com/folke/which-key.nvim) - shortcut hints  
+[opencode](https://github.com/anomalyco/opencode) - AI coding agent (external CLI, see below)
+
+## OpenCode
+
+[OpenCode](https://github.com/anomalyco/opencode) is an AI-powered coding agent that runs in the
+terminal. It is **not** a Neovim plugin — install the binary separately, then this config wires it
+into Neovim automatically.
+
+### Install OpenCode (pick one)
+
+```bash
+# Homebrew
+brew install anomalyco/tap/opencode
+
+# npm
+npm i -g opencode-ai@latest
+
+# curl installer
+curl -fsSL https://opencode.ai/install | bash
+```
+
+### Usage inside Neovim
+
+| Method | Action |
+|--------|--------|
+| `:OpenCode` | Opens a horizontal terminal split running `opencode` |
+| `<leader>oc` | Same as `:OpenCode` (normal mode) |
+
+If `opencode` is not found on your `PATH`, a helpful error message is shown with install instructions.
 
 ## neovim version supported
 
@@ -37,3 +66,4 @@ Welcome to my NeoVim config. Use it for inspiration.
 ## author
 
 Radley E. Sidwell-Lewis
+
